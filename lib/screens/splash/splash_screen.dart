@@ -1,3 +1,5 @@
+import '../../core/routes/app_routes.dart';
+
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,7 +35,20 @@ class _SplashScreenState extends State<SplashScreen>
 
 
     _controller.forward();
+
+    Future.delayed(
+  const Duration(seconds: 3),
+  () {
+
+    Navigator.pushReplacementNamed(
+      context,
+      AppRoutes.welcome,
+    );
+
+  },
+);
   }
+  
 
 
   @override
