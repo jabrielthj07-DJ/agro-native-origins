@@ -1,3 +1,5 @@
+import 'screens/splash/splash_screen.dart';
+
 import 'package:flutter/material.dart';
 
 import 'core/theme/apptheme.dart';
@@ -30,20 +32,8 @@ class AgroNativeOriginsApp extends StatelessWidget {
 
       routes: {
 
-        AppRoutes.splash: (context) => const Scaffold(
+     AppRoutes.splash: (context) => const SplashScreen(),
 
-          body: Center(
-
-            child: Text(
-              'Agro Native Origins',
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ),
-
-          ),
-
-        ),
 
       },
 
