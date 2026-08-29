@@ -1,110 +1,79 @@
 import 'package:flutter/material.dart';
-
+import '../../../core/routes/app_routes.dart';
 
 class RegisterScreen extends StatefulWidget {
-
   const RegisterScreen({super.key});
-
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
-
 }
 
-
 class _RegisterScreenState extends State<RegisterScreen> {
-
-
   String tipoUsuario = 'Consumidor';
-
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       appBar: AppBar(
         title: const Text('Crear cuenta'),
       ),
-
-
       body: SingleChildScrollView(
-
         padding: const EdgeInsets.all(25),
-
         child: Column(
-
           children: [
-
-
             const Icon(
               Icons.eco,
               size: 80,
               color: Color(0xFF2E7D32),
             ),
 
-
             const SizedBox(height: 20),
 
-
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Nombre',
                 border: OutlineInputBorder(),
               ),
             ),
 
-
             const SizedBox(height: 15),
 
-
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Apellido',
                 border: OutlineInputBorder(),
               ),
             ),
 
-
             const SizedBox(height: 15),
 
-
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Correo',
                 border: OutlineInputBorder(),
               ),
             ),
 
-
             const SizedBox(height: 15),
 
-
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Teléfono',
                 border: OutlineInputBorder(),
               ),
             ),
 
-
             const SizedBox(height: 15),
 
-
-            TextField(
-
+            const TextField(
               obscureText: true,
-
               decoration: InputDecoration(
                 labelText: 'Contraseña',
                 border: OutlineInputBorder(),
               ),
-
             ),
 
-
             const SizedBox(height: 20),
-
 
             const Text(
               'Tipo de usuario',
@@ -114,82 +83,65 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
 
-
-            RadioListTile(
-
+            RadioListTile<String>(
               title: const Text('🌱 Productor'),
-
               value: 'Productor',
-
               groupValue: tipoUsuario,
-
-              onChanged: (value){
-
+              onChanged: (value) {
                 setState(() {
-
                   tipoUsuario = value!;
-
                 });
-
               },
-
             ),
 
-
-            RadioListTile(
-
+            RadioListTile<String>(
               title: const Text('🛒 Consumidor'),
-
               value: 'Consumidor',
-
               groupValue: tipoUsuario,
-
-              onChanged: (value){
-
+              onChanged: (value) {
                 setState(() {
-
                   tipoUsuario = value!;
-
                 });
-
               },
-
             ),
-
 
             const SizedBox(height: 20),
 
-
             SizedBox(
-
               width: double.infinity,
-
               height: 55,
-
               child: ElevatedButton(
-
-                onPressed: () {},
-
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                    context,
+                    AppRoutes.home,
+                  );
+                },
                 child: const Text(
                   'Crear cuenta',
                   style: TextStyle(
                     fontSize: 18,
                   ),
                 ),
-
               ),
+            ),
 
-            )
+            const SizedBox(height: 10),
 
-
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  AppRoutes.login,
+                );
+              },
+              child: const Text(
+                '¿Ya tienes una cuenta? Iniciar sesión',
+              ),
+            ),
           ],
-
         ),
-
       ),
-
     );
-
   }
-
 }
